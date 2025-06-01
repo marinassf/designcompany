@@ -1,17 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php include 'header.php'; ?>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Our Services - [Your Agency Name]</title>
-    <meta name="description"
-        content="Explore the comprehensive design services offered by [Your Agency Name] to elevate your global brand.">
-    <link rel="stylesheet" href="css/main.css">
-</head>
-
-<body>
-    <header id="header-placeholder"></header>
     <main>
         <section class="page-title-banner">
             <div class="container">
@@ -69,8 +57,4 @@
         </section>
     </main>
 
-    <footer id="footer-placeholder"></footer>
-    <script src="js/script.js"></script>
-</body>
-
-</html>
+<?php include 'footer.php'; ?>

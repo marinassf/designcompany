@@ -1,33 +1,9 @@
+// Adiciona um listener que espera todo o HTML da página carregar antes de rodar o script.
 document.addEventListener('DOMContentLoaded', function () {
 
     /**
      * ===================================================================
-     * FUNÇÃO PARA CARREGAR COMPONENTES (HEADER/FOOTER)
-     * ===================================================================
-     */
-    const loadComponent = (selector, url, callback) => {
-        fetch(url)
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error(`Erro ao carregar ${url}: ${response.statusText}`);
-                }
-                return response.text();
-            })
-            .then(data => {
-                const element = document.querySelector(selector);
-                if (element) {
-                    element.innerHTML = data;
-                    if (callback) {
-                        callback();
-                    }
-                }
-            })
-            .catch(error => console.error(error));
-    };
-
-    /**
-     * ===================================================================
-     * FUNÇÕES DE INICIALIZAÇÃO
+     * FUNÇÕES DE INICIALIZAÇÃO (Suas funções de interatividade)
      * ===================================================================
      */
 
@@ -51,6 +27,7 @@ document.addEventListener('DOMContentLoaded', function () {
             button.addEventListener('click', function () {
                 const isActive = step.classList.contains('active');
 
+                // Fecha todos os outros acordeões
                 processSteps.forEach(otherStep => {
                     if (otherStep !== step) {
                         otherStep.classList.remove('active');
@@ -61,6 +38,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     }
                 });
 
+                // Abre ou fecha o acordeão clicado
                 step.classList.toggle('active');
                 this.setAttribute('aria-expanded', !isActive);
                 content.style.display = isActive ? 'none' : 'flex';
@@ -156,6 +134,7 @@ document.addEventListener('DOMContentLoaded', function () {
             const firstCard = grid.querySelector('.blog-card, .project-card');
             if (!firstCard) return;
 
+            // Clona e adiciona dois cards de exemplo
             grid.appendChild(firstCard.cloneNode(true));
             if (grid.children[1]) {
                 grid.appendChild(grid.children[1].cloneNode(true));
@@ -173,17 +152,15 @@ document.addEventListener('DOMContentLoaded', function () {
 
     /**
      * ===================================================================
-     * EXECUÇÃO
+     * EXECUÇÃO DE TODAS AS FUNÇÕES
      * ===================================================================
      */
 
-    // Carrega componentes reutilizáveis
-    loadComponent("#header-placeholder", "header.html");
-    loadComponent("#footer-placeholder", "footer.html", initCopyrightYear);
-
-    // Inicializa funcionalidades da página
+    // Chama todas as funções de inicialização diretamente,
+    // pois a página já é carregada completa pelo PHP.
     initAccordion();
     initCarousel();
     initLoadMore();
+    initCopyrightYear(); 
 
 });
