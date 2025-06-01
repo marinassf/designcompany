@@ -17,20 +17,19 @@
         </div>
 
         <div class="footer-revento-right">
-            <ul class="footer-nav-links">
-                <li><a href="ourteam.php">ABOUT</a></li> <li><a href="services.php">SERVICES</a></li> <li><a href="#">PRICING</a></li>
-                <li><a href="#">CONTACT US</a></li>
-            </ul>
+<ul class="footer-nav-links">
+    <li><a href="ourteam.php"><span class="nav-icon"></span>ABOUT</a></li>
+    <li><a href="services.php"><span class="nav-icon"></span>SERVICES</a></li>
+    <li><a href="#"><span class="nav-icon"></span>PRICING</a></li>
+    <li><a href="#"><span class="nav-icon"></span>CONTACT US</a></li>
+</ul>
             <p class="footer-copyright">
                 COPYRIGHT © <span id="current-year-footer-revento"></span> REVENTO.
                 <br>
                 ALL RIGHTS RESERVED.
             </p>
         </div>
-
     </div>
 </footer>
 
-<script src="js/script.js"></script>
-</body>
-</html>
+<script src="/js/script.js"></script>

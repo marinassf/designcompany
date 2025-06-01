@@ -1,0 +1,36 @@
+/* css/page-title.css */
+
+.page-title-banner {
+    background-color: #19224d; /* Mesmo azul escuro dos outros banners */
+    color: white;
+    padding: 80px 0;
+    text-align: center;
+    position: relative;
+}
+
+.page-title-banner h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin: 0 0 15px;
+}
+
+.page-title-banner p {
+    max-width: 600px;
+    margin: 0 auto;
+    color: #e0e0e0;
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+/* Responsividade para telas menores */
+@media (max-width: 768px) {
+    .page-title-banner {
+        padding: 60px 0;
+    }
+    .page-title-banner h1 {
+        font-size: 2.2rem;
+    }
+    .page-title-banner p {
+        font-size: 1rem;
+    }
+}
