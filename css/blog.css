@@ -1,0 +1,344 @@
+
+
+/* --- 2. Hero Section --- */
+.hero-section {
+    background-color: var(--color-blue-dark);
+    color: var(--color-white);
+    padding: 80px 0 120px;
+    text-align: center;
+    position: relative;
+}
+
+.hero-section .sub-title {
+    color: var(--color-white);
+    font-weight: 700;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.hero-section h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin: 10px 0 20px;
+    color: var(--color-white);
+}
+
+.hero-section h1::before,
+.hero-section h1::after {
+    content: '✨';
+    font-size: 1.5rem;
+    margin: 0 15px;
+    vertical-align: middle;
+    color: var(--color-gold);
+}
+
+.hero-section .description {
+    max-width: 500px;
+    margin: 0 auto;
+    color: var(--color-text-light);
+}
+
+.curve {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    background: var(--color-white);
+    border-top-left-radius: 50% 100%;
+    border-top-right-radius: 50% 100%;
+}
+
+
+/* --- 3. Blog Post Carousel Section --- */
+.blog-post-section {
+    background-color: var(--color-white);
+    padding: 60px 0 80px;
+}
+
+.carousel-window {
+    position: relative;
+    overflow: hidden;
+}
+
+.slider-track {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.slide {
+    min-width: 100%;
+    box-sizing: border-box;
+    padding: 0 10px;
+}
+
+.slide-content {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+
+.post-info { flex: 1; }
+
+.post-info h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.post-info p {
+    margin-bottom: 30px;
+}
+
+.post-image { 
+    flex: 1; 
+}
+
+.post-image img {
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.read-more-btn {
+    background-color: var(--color-blue-dark);
+    color: var(--color-white);
+    border: none;
+    padding: 12px 25px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.read-more-btn:hover {
+    background-color: var(--color-blue-hover);
+}
+
+
+/* Carousel Navigation */
+.carousel-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    font-size: 2rem;
+    padding: 10px 15px;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 10;
+    transition: background-color 0.3s ease;
+}
+.carousel-button:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.prev-btn { left: -20px; }
+.next-btn { right: -20px; }
+
+.carousel-dots {
+    text-align: center;
+    padding-top: 25px;
+}
+
+.dot {
+    height: 12px;
+    width: 12px;
+    margin: 0 5px;
+    background-color: var(--color-border);
+    border-radius: 50%;
+    display: inline-block;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.dot.active {
+    background-color: var(--color-blue-dark);
+}
+
+/* --- 4. All Blogs Grid Section --- */
+.all-blogs-section {
+    padding: 80px 0;
+}
+
+.blogs-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 50px;
+    gap: 30px;
+}
+
+.header-title h2 {
+    font-size: 2.5rem;
+}
+
+.header-description {
+    flex-basis: 40%;
+}
+
+.blogs-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 50px 30px;
+}
+
+/* Blog Card */
+.blog-card {
+    cursor: pointer;
+}
+
+.card-image-wrapper {
+    overflow: hidden;
+    border-radius: 12px;
+    margin-bottom: 20px;
+}
+
+.card-image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease-in-out;
+}
+
+.blog-card:hover .card-image-wrapper img {
+    transform: scale(1.1);
+}
+
+.card-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    font-size: 0.8rem;
+}
+
+.category-tag {
+    padding: 4px 12px;
+    border-radius: 20px;
+    color: white;
+    font-weight: 500;
+}
+
+/* Category Colors */
+.category-tag.marketing { background-color: #7b68ee; }
+.category-tag.design { background-color: #1e90ff; }
+.category-tag.ads { background-color: #8a2be2; }
+.category-tag.data { background-color: #4682b4; }
+
+.author-date {
+    color: #888;
+    display: flex;
+    gap: 15px;
+}
+
+.post-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.post-excerpt {
+    font-size: 0.95rem;
+}
+
+/* Load More Button */
+.load-more-container {
+    text-align: center;
+    margin-top: 60px;
+}
+
+.load-more-btn {
+    background-color: var(--color-blue-dark);
+    color: var(--color-white);
+    border: none;
+    padding: 14px 35px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.load-more-btn:hover {
+    background-color: var(--color-blue-hover);
+}
+
+
+/* --- 5. Responsiveness --- */
+@media (max-width: 992px) {
+    .slide-content {
+        gap: 30px;
+    }
+    .post-info h2 {
+        font-size: 1.7rem;
+    }
+}
+
+
+@media (max-width: 768px) {
+    /* Hero */
+    .hero-section h1 {
+        font-size: 2.5rem;
+    }
+    .hero-section h1::before,
+    .hero-section h1::after {
+        font-size: 1.2rem;
+        margin: 0 10px;
+    }
+
+    /* Carousel */
+    .slide-content {
+        flex-direction: column;
+        text-align: center;
+    }
+    .post-info { order: 2; }
+    .post-image { order: 1; }
+
+    .prev-btn { left: 10px; }
+    .next-btn { right: 10px; }
+
+    /* All Blogs */
+    .blogs-header {
+        flex-direction: column;
+        align-items: flex-start;
+        text-align: left;
+        margin-bottom: 40px;
+    }
+
+    .header-description {
+        flex-basis: 100%;
+    }
+
+    .blogs-grid {
+        grid-template-columns: 1fr;
+        gap: 50px;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        line-height: 1.5;
+    }
+
+    /* Hero */
+    .hero-section h1 {
+        font-size: 2rem;
+    }
+
+    /* Carousel */
+    .post-info h2 {
+        font-size: 1.5rem;
+    }
+
+    /* All Blogs */
+    .header-title h2 {
+        font-size: 2rem;
+    }
+}

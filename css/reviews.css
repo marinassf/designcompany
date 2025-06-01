@@ -1,0 +1,160 @@
+/* --- Configurações Globais --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: white;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* --- Seção Hero (Cabeçalho) --- */
+.hero-section {
+    background-color: #19224d;
+    color: white;
+    padding: 80px 0 120px;
+    text-align: center;
+    position: relative;
+}
+
+.hero-section .sub-title {
+    color: #adff2f; /* Verde-limão */
+    font-weight: 700;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    background-color: rgba(173, 255, 47, 0.1);
+    padding: 5px 10px;
+    border-radius: 5px;
+    display: inline-block;
+}
+
+.hero-section h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin: 15px 0 20px;
+}
+
+.hero-section h1::before,
+.hero-section h1::after {
+    content: '⭐';
+    font-size: 1.5rem;
+    margin: 0 15px;
+    vertical-align: middle;
+}
+
+.hero-section .description {
+    max-width: 500px;
+    margin: 0 auto;
+    color: #e0e0e0;
+    line-height: 1.6;
+}
+
+/* --- Curva --- */
+.curve {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    background: white;
+    border-top-left-radius: 50% 100%;
+    border-top-right-radius: 50% 100%;
+}
+
+/* --- Seção de Depoimentos --- */
+.testimonials-section {
+    padding: 80px 0;
+}
+
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+}
+
+.testimonial-card {
+    background-color: #f8faff; /* Azul muito claro */
+    border-radius: 15px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column; /* Organiza o conteúdo verticalmente */
+}
+
+.card-header h4 {
+    background-color: #19224d;
+    color: white;
+    padding: 8px 15px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    display: inline-block; /* Faz o fundo se ajustar ao texto */
+    margin-bottom: 25px;
+    text-transform: uppercase;
+}
+
+.quote-text {
+    color: #3d4a59;
+    line-height: 1.7;
+    flex-grow: 1; /* Faz este elemento crescer, empurrando o footer para baixo */
+    margin-bottom: 25px;
+}
+
+.card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.author-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.author-info img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover; /* Garante que a imagem não fique distorcida */
+}
+
+.author-name {
+    display: block;
+    font-weight: 600;
+    color: #1c1c1c;
+}
+
+.author-role {
+    font-size: 0.85rem;
+    color: #555;
+}
+
+.quote-icon {
+    font-size: 6rem;
+    color: #e9eff8;
+    font-family: serif; /* Fontes com serifa geralmente têm aspas mais bonitas */
+    line-height: 1;
+    user-select: none; /* Impede que o usuário selecione as aspas */
+}
+
+/* --- Responsividade --- */
+@media (max-width: 992px) {
+    .testimonials-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-section h1 {
+        font-size: 2.2rem;
+    }
+}

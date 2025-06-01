@@ -1,0 +1,287 @@
+/* --- Configurações Globais e de Fonte --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f0f2f5; /* Cor de fundo para ver a composição */
+}
+
+/* --- Container Principal --- */
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* --- Seção Superior (Hero) --- */
+.hero-section {
+    background-color: #19224d;
+    color: white;
+    padding: 80px 0 120px; /* Padding inferior maior para dar espaço para a curva */
+    text-align: center;
+    position: relative; /* Necessário para posicionar a curva */
+}
+
+.hero-section .sub-title {
+    color: #ffaf38;
+    font-weight: 700;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.hero-section h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin: 10px 0 20px;
+}
+
+/* Adicionando os ícones de coroa ao H1 */
+.hero-section h1::before,
+.hero-section h1::after {
+    content: '👑';
+    font-size: 1.5rem;
+    margin: 0 15px;
+    vertical-align: middle;
+}
+
+.hero-section .description {
+    max-width: 500px;
+    margin: 0 auto;
+    color: #e0e0e0;
+    line-height: 1.6;
+}
+
+/* --- A Mágica da Curva --- */
+.curve {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 80px; /* Altura da curva */
+    background: white; /* Mesma cor da seção seguinte */
+    /* Cria a forma de curva para dentro usando border-radius em um semicírculo */
+    border-top-left-radius: 50% 100%;
+    border-top-right-radius: 50% 100%;
+}
+
+
+/* --- Seção de Projetos --- */
+.projects-section {
+    background-color: white;
+    padding: 60px 0 80px;
+}
+
+.project-showcase {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+
+/* Coluna da Esquerda: Informações */
+.project-info {
+    flex: 1; /* Ocupa metade do espaço */
+}
+
+.project-info h2 {
+    font-size: 1.8rem;
+    color: #1c1c1c;
+    font-weight: 700;
+}
+
+.project-info h3 {
+    font-size: 1.1rem;
+    color: #555;
+    font-weight: 600;
+    margin: 5px 0 15px;
+}
+
+.project-info p {
+    color: #666;
+    line-height: 1.7;
+}
+
+.project-nav {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    margin-top: 30px;
+}
+
+.slide-counter {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #333;
+}
+
+.nav-arrows button {
+    background: none;
+    border: 1px solid #ddd;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-size: 1.2rem;
+    color: #555;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.nav-arrows button:hover {
+    background-color: #19224d;
+    color: white;
+    border-color: #19224d;
+}
+
+/* Coluna da Direita: Imagem */
+.project-image {
+    flex: 1; /* Ocupa a outra metade do espaço */
+}
+
+.project-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* --- Responsividade para Telas Menores --- */
+@media (max-width: 768px) {
+    .hero-section h1 {
+        font-size: 2.2rem;
+    }
+    
+    .hero-section h1::before,
+    .hero-section h1::after {
+        font-size: 1.2rem;
+        margin: 0 8px;
+    }
+
+    .project-showcase {
+        flex-direction: column; /* Empilha as colunas */
+        text-align: center;
+    }
+
+    .project-nav {
+        justify-content: center; /* Centraliza a navegação */
+    }
+}
+/* --- Container Principal --- */
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* --- Seção de Todos os Projetos --- */
+.all-projects-section {
+    background-color: white;
+    padding: 80px 0;
+}
+
+/* --- Cabeçalho da Seção --- */
+.projects-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end; /* Alinha pela base */
+    margin-bottom: 50px;
+    gap: 30px;
+}
+
+.header-title {
+    flex: 1;
+}
+
+.sub-title {
+    color: #ffaf38;
+    font-weight: 700;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+}
+
+.header-title h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #1c1c1c;
+    line-height: 1.2;
+}
+
+.header-description {
+    flex: 1;
+    max-width: 400px; /* Limita a largura do texto */
+    color: #666;
+    line-height: 1.7;
+}
+
+/* --- Grade de Projetos (CSS Grid) --- */
+.projects-grid {
+    display: grid;
+    /* Cria duas colunas de tamanho igual (1fr = 1 fração) */
+    grid-template-columns: repeat(2, 1fr);
+    /* Espaçamento entre as linhas e colunas */
+    gap: 40px 30px;
+}
+
+.project-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    display: block;
+    margin-bottom: 20px;
+}
+
+.card-content h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+}
+
+.card-content p {
+    font-size: 0.95rem;
+    color: #666;
+    line-height: 1.6;
+}
+
+/* --- Botão Carregar Mais --- */
+.load-more-container {
+    text-align: center;
+    margin-top: 60px;
+}
+
+.load-more-btn {
+    background-color: #19224d; /* Azul escuro do design anterior */
+    color: white;
+    border: none;
+    padding: 14px 35px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.load-more-btn:hover {
+    background-color: #2c3a6f; /* Tom de azul um pouco mais claro */
+}
+
+/* --- Responsividade para Telas Menores --- */
+@media (max-width: 768px) {
+    .projects-header {
+        flex-direction: column; /* Empilha o título e a descrição */
+        align-items: flex-start; /* Alinha à esquerda */
+    }
+
+    .projects-grid {
+        /* Muda a grade para uma única coluna */
+        grid-template-columns: 1fr;
+    }
+}

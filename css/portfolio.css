@@ -1,0 +1,201 @@
+/* Portfolio Highlight Section */
+.portfolio-highlight-section.light-bg {
+    background-color: var(--color-white);
+    padding: 60px 0;
+    font-family: var(--font-primary);
+    color: var(--color-dark);
+}
+
+/* Optional: For flex layout of title and nav arrows if used */
+.section-header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+    /* Space below the entire header block */
+}
+
+/* Navigation Arrows (if added to HTML) */
+.portfolio-navigation {
+    display: flex;
+    gap: 12px;
+}
+
+.portfolio-navigation .nav-arrow {
+    background-color: #0D2344;
+    /* Dark blue */
+    color: var(--color-white);
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+    /* For arrow character or SVG */
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity var(--transition-speed-fast) var(--transition-easing);
+}
+
+.portfolio-navigation .nav-arrow:hover {
+    opacity: 0.85;
+}
+
+/* Portfolio Grid */
+.portfolio-grid {
+    display: flex;
+    /* Using flex for more control over alignment if needed */
+    flex-wrap: wrap;
+    gap: 30px;
+    /* margin-top: 40px; /* If h2 is not in section-header-top */
+}
+
+.portfolio-item-card {
+    background-color: var(--color-blue-dark);
+    border-radius: var(--border-radius-lg);
+    /* 8px */
+    flex: 1 1 calc(33.333% - 20px);
+    /* Aim for 3 columns, accounts for 30px gap (2 gaps for 3 items) */
+    min-width: 280px;
+    box-shadow: var(--box-shadow-sm);
+    /* Subtle shadow */
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform var(--transition-speed) var(--transition-easing), box-shadow var(--transition-speed) var(--transition-easing);
+}
+
+.portfolio-item-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--box-shadow);
+}
+
+
+.portfolio-item-card img {
+    width: 100%;
+    height: 230px;
+    object-fit: cover;
+    /* border-radius: var(--border-radius-lg) var(--border-radius-lg) 0 0; /* Rounded top corners if overlay doesn't cover */
+    display: block;
+}
+
+.portfolio-item-overlay {
+    /* Was .portfolio-item-content in some comments */
+    padding: 20px 20px 25px 20px;
+    text-align: left;
+    flex-grow: 1;
+    /* Ensures content area expands */
+    background-color: var(--color-blue-dark);
+    /* Ensure background */
+    border-top: 1px solid var(--color-border-subtle);
+    /* If image doesn't have bottom radius */
+}
+
+.portfolio-item-card h3 {
+    font-size: 1.2rem;
+    color: var(--color-white);
+    /* Dark Blue */
+    font-weight: 700;
+    text-transform: uppercase;
+    margin: 0 0 10px 0;
+    line-height: 1.4;
+}
+
+.portfolio-item-card p {
+    font-size: 14px;
+    color: var(--color-white);
+    /* Grey */
+    line-height: 1.6;
+    margin: 0 0 15px 0;
+    /* Space before link */
+}
+
+.portfolio-item-card a {
+    /* View Case Study link */
+    font-size: 14px;
+    color: #F39C12;
+    /* Orange */
+    font-weight: bold;
+    text-decoration: none;
+    display: inline-block;
+    /* If it was previously hidden */
+}
+
+.portfolio-item-card a:hover {
+    text-decoration: none;
+}
+
+.portfolio-btn {
+    display: inline-block;
+    border-radius: 15px;
+    /* Garante que o padding funcione corretamente */
+    padding: 12px 24px;
+    border: 2px dashed rgba(255, 255, 255, 0.7);
+    color: var(--color-white);
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    /* Transição suave */
+}
+
+.portfolio-btn:hover {
+    background-color: var(--color-orange);
+    color: var(--color-black);
+    border-color: var(--color-orange);
+}
+
+/* Responsive adjustments */
+@media (max-width: 991.98px) {
+
+    /* Tablets */
+    .portfolio-item-card {
+        flex-basis: calc(50% - 15px);
+        /* 2 columns */
+    }
+
+    .portfolio-highlight-section h2 {
+        font-size: clamp(24px, 4vw, 28px);
+    }
+
+    .portfolio-highlight-section h2::before {
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 767.98px) {
+
+    /* Landscape phones and smaller */
+    .section-header-top {
+        flex-direction: column;
+        align-items: center;
+        /* Center title and nav if stacked */
+        text-align: center;
+    }
+
+    .portfolio-navigation {
+        margin-top: 20px;
+    }
+
+    .portfolio-highlight-section h2 {
+        text-align: center;
+        padding-top: 40px;
+        /* Adjust if kicker is also centered */
+    }
+
+    .portfolio-highlight-section h2::before {
+        left: 50%;
+        transform: translateX(-50%);
+        text-align: center;
+    }
+
+    .portfolio-item-card {
+        flex-basis: 100%;
+        /* 1 column */
+    }
+
+    .portfolio-item-card img {
+        height: 250px;
+    }
+}

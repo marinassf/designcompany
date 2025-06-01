@@ -1,0 +1,220 @@
+/* Process Section ("Our Approach") */
+.process-section.styled-process-section {
+    font-family: var(--font-secondary);
+    background-color: var(--color-white);
+    padding: 60px 0;
+    color: var(--color-black);
+}
+
+.process-section .container > h2 {
+    text-align: center;
+    font-size: clamp(2rem, 5vw, 2.5rem);
+    font-weight: bold;
+    margin-bottom: 40px;
+    color: var(--color-black);
+}
+
+.process-steps {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.process-step {
+    margin-bottom: 10px;
+    border-radius: var(--border-radius-lg);
+    overflow: hidden;
+    transition: background-color var(--transition-speed) ease, padding var(--transition-speed) ease;
+    border: 1px solid var(--color-border-subtle);
+}
+
+.step-header {
+    display: flex;
+    align-items: flex-start;
+    padding: 25px 30px;
+    /* cursor: default;  /* Opcional: para garantir que não pareça clicável */
+    position: relative;
+    background-color: var(--color-light);
+    transition: background-color var(--transition-speed) ease;
+}
+
+.process-step:not(.active) .step-header:hover {
+    background-color: var(--color-medium-light);
+}
+
+.step-number {
+    font-size: clamp(2.5rem, 6vw, 3.5rem);
+    font-weight: bold;
+    margin-right: 25px;
+    line-height: 1;
+    color: var(--color-secondary);
+    flex-shrink: 0;
+}
+
+.step-header-content {
+    flex-grow: 1;
+}
+
+.step-header-content h3 {
+    font-size: clamp(1.2rem, 3vw, 1.5rem);
+    font-weight: bold;
+    margin: 0 0 10px 0;
+    text-transform: uppercase;
+    color: var(--color-dark);
+}
+
+.step-main-description {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--color-text-light);
+    margin: 0;
+    max-width: 450px;
+}
+
+.step-toggle-button {
+    background: none;
+    border: none;
+    padding: 5px;
+    cursor: pointer; /* Importante: cursor de clique apenas na seta */
+    margin-left: 20px;
+    align-self: center;
+    flex-shrink: 0;
+}
+
+.arrow-icon {
+    width: 28px;
+    height: 28px;
+    fill: var(--color-text-light);
+    transition: transform var(--transition-speed) ease; /* A rotação da seta pode ser feita com CSS se preferir */
+}
+
+/* Active (Expanded) State */
+.process-step.active {
+    background-color: #FF8C00;
+    border-color: #FF8C00;
+}
+
+.process-step.active .step-header {
+    background-color: transparent;
+}
+
+.process-step.active .step-number,
+.process-step.active .step-header-content h3 {
+    color: var(--color-white);
+}
+.process-step.active .step-main-description {
+    color: var(--color-white);
+    opacity: 0.9;
+}
+
+.process-step.active .arrow-icon {
+    fill: var(--color-white);
+    /* Exemplo de rotação da seta com CSS (JS já está mudando o path do SVG) */
+    /* transform: rotate(180deg); */
+}
+
+.step-details-content {
+    display: none; /* Importante: Conteúdo escondido por padrão */
+    padding: 20px 30px 30px calc(30px + 3.5rem + 25px - 0.8rem);
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+/* Quando o JS adiciona display:flex, ele sobrescreve o display:none acima.
+   Alternativamente, você poderia usar uma regra CSS como:
+   .process-step.active .step-details-content {
+       display: flex;
+   }
+   E o JS apenas alternaria a classe .active no .process-step.
+   Mas a abordagem atual do JS de mudar style.display diretamente também funciona.
+*/
+
+.process-card {
+    background-color: var(--color-white);
+    border-radius: var(--border-radius);
+    padding: 20px;
+    box-shadow: var(--box-shadow-sm);
+    flex: 1 1 calc(33.333% - 14px);
+    min-width: 220px;
+    color: var(--color-dark);
+}
+
+.process-card h4 {
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin: 0 0 5px 0;
+    color: var(--color-dark);
+}
+
+.duration {
+    display: block;
+    font-size: 0.8rem;
+    color: var(--color-text-muted);
+    margin-bottom: 15px;
+}
+
+.tags .tag {
+    display: inline-block;
+    padding: 5px 12px;
+    border-radius: 15px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    color: var(--color-white);
+}
+
+.tag-green { background-color: var(--color-success); }
+.tag-red { background-color: var(--color-danger); }
+.tag-yellow { background-color: var(--color-warning); color: var(--color-dark); }
+.tag-blue { background-color: var(--color-primary); }
+.tag-purple { background-color: var(--color-secondary); }
+.tag-light-blue { background-color: var(--color-info); }
+.tag-pink { background-color: #E83E8C; }
+.tag-light-purple { background-color: #B87EE0; }
+
+
+@media (max-width: 992px) {
+    .step-details-content {
+         padding: 20px 20px 20px calc(20px + 3.5rem + 15px - 0.8rem);
+    }
+    .process-card {
+        flex: 1 1 calc(50% - 10px);
+    }
+}
+
+@media (max-width: 768px) {
+    .step-header {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 20px;
+    }
+    .step-number {
+        font-size: 2.5rem;
+        margin-bottom: 10px;
+        margin-right: 0;
+    }
+    .step-header-content h3 {
+        font-size: 1.3rem;
+    }
+    .step-main-description {
+        max-width: 100%;
+    }
+    .step-toggle-button {
+        align-self: flex-end;
+        position: absolute;
+        top: 20px;
+        right: 20px;
+    }
+    .step-details-content {
+        padding: 0 20px 20px 20px;
+        margin-top: 10px;
+    }
+    .process-card {
+        flex: 1 1 100%;
+        min-width: unset;
+    }
+}

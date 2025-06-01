@@ -1,0 +1,112 @@
+/* Services Overview Section */
+.services-overview-section {
+    padding: 60px 0px; /* Reduced horizontal padding to 0 as container handles it */
+    background-color: var(--color-white); /* Default to light background for this section */
+    color: var(--color-dark);
+}
+
+.services-overview-section h2 { /* "Our Core Expertise" */
+    font-size: clamp(2.2rem, 5vw, 2.8rem);
+    font-weight: bold;
+    color: var(--color-dark); /* Dark text on light background */
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Min width 300px */
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.service-item-card {
+    background-color: var(--color-pink); /* Orange base color from reference */
+    color: var(--color-white);
+    border-radius: 25px;
+    padding: 30px;
+    padding-bottom: 80px; /* Extra space for the arrow button */
+    position: relative;
+    box-shadow: var(--box-shadow);
+    display: flex;
+    flex-direction: column;
+    min-height: 300px; /* Minimum height for consistency */
+    overflow: hidden; /* To contain pseudo-elements if they go slightly outside */
+    border-style: dashed;
+}
+
+/* Icon visibility is handled by HTML structure, hide if not used in this design variant */
+.service-item-card .service-icon {
+    /* display: none; /* Uncomment if the orange card design does not use these icons */
+    /* If icons are used, style them: */
+    width: 50px; /* Example size */
+    height: 50px; /* Example size */
+    margin-bottom: 15px;
+    /* filter: brightness(0) invert(1); /* To make them white if they are dark SVGs */
+}
+
+
+.service-item-card h3 {
+    font-size: clamp(1.5rem, 4vw, 1.8rem);
+    font-weight: bold;
+    margin-top: 0;
+    margin-bottom: 15px;
+    line-height: 1.2;
+    text-align: left;
+    text-transform: uppercase;
+}
+
+.service-item-card p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 30px;
+    opacity: 0.9;
+    text-align: left;
+    flex-grow: 1;
+}
+
+/* Card Shapes - Speech bubble tail and tab */
+.service-item-card::after { /* Tail */
+    content: '';
+    position: absolute;
+    bottom: 5px;
+    left: -14px;
+    width: 30px;
+    height: 30px;
+    background-color: inherit;
+    transform: rotate(45deg);
+    z-index: -1; /* Behind content, but ensure card has overflow:hidden or bg */
+    border-bottom-right-radius: 8px;
+}
+
+.service-item-card::before { /* Tab */
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 30px;
+    width: 35px;
+    height: 18px;
+    background-color: inherit;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    z-index: -1;
+}
+
+@media (max-width: 768px) {
+    .services-overview-section h2 {
+        font-size: clamp(1.8rem, 4vw, 2.2rem);
+    }
+    .service-item-card h3 {
+        font-size: clamp(1.4rem, 3.5vw, 1.6rem);
+    }
+    .service-item-card {
+        padding-bottom: 70px; /* Adjust for smaller screens */
+    }
+    .service-item-card .learn-more-link {
+        width: 50px;
+        height: 50px;
+    }
+    .service-item-card .learn-more-link::after {
+        font-size: 24px;
+    }
+}

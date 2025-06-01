@@ -1,0 +1,135 @@
+/* --- Configurações Globais e de Fonte --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f0f2f5;
+}
+
+/* --- Container Principal --- */
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* --- Seção Superior (Hero) - Estilo específico para esta seção --- */
+.hero-section.team-hero {
+    background-color: #19224d;
+    color: white;
+    padding: 80px 0 120px;
+    text-align: center;
+    position: relative;
+}
+
+.team-hero .sub-title {
+    color: #ffaf38;
+    font-weight: 700;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.team-hero h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin: 10px 0 20px;
+}
+
+.team-hero h1::before,
+.team-hero h1::after {
+    content: '⭐'; /* Usando um emoji de estrela */
+    font-size: 1.5rem;
+    margin: 0 15px;
+    vertical-align: middle;
+    color: #ffd700; /* Cor amarela para a estrela */
+}
+
+.team-hero .description {
+    max-width: 500px;
+    margin: 0 auto;
+    color: #e0e0e0;
+    line-height: 1.6;
+}
+
+/* --- A Mágica da Curva (Idêntica aos exemplos anteriores) --- */
+.curve {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    background: white;
+    border-top-left-radius: 50% 100%;
+    border-top-right-radius: 50% 100%;
+}
+
+/* --- Seção de Membros da Equipe --- */
+.team-members-section {
+    background-color: white;
+    padding: 60px 0 80px;
+}
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Três colunas iguais */
+    gap: 30px;
+}
+
+.member-card {
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+.member-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    display: block;
+}
+
+.member-card h3 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.member-card .role {
+    font-size: 0.9rem;
+    color: #777;
+    margin-bottom: 0;
+}
+
+/* --- Responsividade para Telas Menores --- */
+@media (max-width: 992px) {
+    .team-grid {
+        grid-template-columns: repeat(2, 1fr); /* Duas colunas em telas médias */
+    }
+}
+
+@media (max-width: 768px) {
+    .team-grid {
+        grid-template-columns: 1fr; /* Uma coluna em telas pequenas */
+    }
+    .member-card {
+        padding: 30px;
+    }
+    .member-card img {
+        margin-bottom: 20px;
+    }
+    .member-card h3 {
+        font-size: 1.4rem;
+    }
+    .member-card .role {
+        font-size: 1rem;
+    }
+}

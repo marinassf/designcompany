@@ -1,0 +1,85 @@
+/* Global Map Section */
+.global-map-section {
+    position: relative;
+    padding: var(--spacing-xl) 0; /* 3rem or 48px */
+    background-color: var(--color-blue-dark); /* #0A192F Dark blue */
+    overflow: hidden;
+    color: var(--color-text-global-section); /* #f0f4f8 */
+}
+
+.global-map-section .section-content {
+    position: relative;
+    z-index: 2; /* Content above globe */
+    text-align: center;
+}
+
+.global-map-section h2 {
+    font-family: var(--font-primary);
+    font-size: clamp(2rem, 5vw, 3rem);
+    margin-bottom: var(--spacing-md); /* 1rem or 16px */
+    color: var(--color-white); /* Explicitly white for this dark section */
+    font-weight: 700; /* Anton is bold */
+    text-transform: uppercase;
+}
+
+.global-map-section .section-content p {
+    max-width: 750px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: var(--spacing-lg); /* 1.5rem or 24px */
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    line-height: 1.7;
+    opacity: 0.9;
+}
+
+.global-map-background-globe {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: clamp(500px, 80vw, 900px);
+    height: clamp(500px, 80vw, 900px);
+    transform: translate(-50%, -50%);
+    /*
+      IMPORTANT: Replace '/assets/images/2k_earth_daymap.jpg' with the correct path to YOUR globe texture.
+      The texture should preferably be an equirectangular projection map of the Earth.
+    */
+    background-image: url('/assets/svg/2k_earth_daymap.jpg'); /* Corrected example path */
+    background-color: rgba(var(--color-primary-rgb), 0.05); /* Fallback or subtle tint, e.g., 0,123,255 */
+    background-size: auto 100%; /* Height fills, width adjusts for seamless repeat */
+    background-repeat: repeat-x;
+    border-radius: 50%;
+    opacity: 0.15; /* Reduced from 0.2 for more subtlety */
+    z-index: 1; /* Behind content */
+    animation: spin-globe 120s linear infinite;
+    box-shadow: 0 0 100px 30px rgba(var(--color-primary-rgb), 0.08); /* Softer atmosphere */
+}
+
+@keyframes spin-globe {
+    0% {
+        /* This value MUST BE the EXACT WIDTH of your globe texture image in pixels. */
+        /* Example: If '2k_earth_daymap.jpg' is 2048px wide, use 0px. */
+        background-position-x: 0px;
+    }
+    100% {
+        /* This value MUST BE THE SAME as the image width for a seamless loop. */
+        /* Example: If '2k_earth_daymap.jpg' is 2048px wide, use 2048px (or -2048px). */
+        background-position-x: 2048px; /* ADJUST THIS VALUE to your image width */
+    }
+}
+
+@media (max-width: 768px) {
+    .global-map-section {
+        padding: var(--spacing-lg) 0;
+    }
+    .global-map-background-globe {
+        opacity: 0.1; /* Further reduce opacity on smaller screens */
+        width: clamp(300px, 100vw, 500px); /* Smaller globe */
+        height: clamp(300px, 100vw, 500px);
+    }
+     .global-map-section h2 {
+        font-size: clamp(1.8rem, 4vw, 2.5rem);
+    }
+    .global-map-section .section-content p {
+        font-size: clamp(0.9rem, 1.8vw, 1rem);
+    }
+}

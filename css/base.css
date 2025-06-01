@@ -1,0 +1,256 @@
+/* -------------------------------------------------------------------
+    1. CSS Variables & Root Styles
+------------------------------------------------------------------- */
+:root {
+  /* Colors */
+  --color-orange: #D96F66;
+  --color-green: #8A8C7B;
+  --color-blue: #72C1F2;
+  --color-blue-dark: #3C4973;
+  --color-pink: #FF7AC9;
+  --color-purple: #917ED9;
+  --color-yellow: #F2B705;
+  --color-orange:#F29F05;
+  --color-white: #ffffff;
+  --color-black: #000000;
+  --color-grey: #595959;
+
+
+  /* Specific Theme Colors from User's Snippets (Adjust as needed) */
+  --quarty-purple-medium: var(--color-secondary);
+  --quarty-background-subtle: var(--color-light);
+  --quarty-red-vibrant: var(--color-danger);
+
+
+  /* Typography */
+  --font-primary: "Bebas Neue", sans-serif;
+  --font-secondary: "Plus Jakarta Sans", sans-serif;
+
+  /* Spacing */
+  --spacing-xs: 0.25rem;
+  /* 4px */
+  --spacing-sm: 0.5rem;
+  /* 8px */
+  --spacing-md: 1rem;
+  /* 16px */
+  --spacing-lg: 1.5rem;
+  /* 24px */
+  --spacing-xl: 3rem;
+  /* 48px */
+  --spacing-xxl: 5rem;
+  /* 80px */
+
+  --container-padding: var(--spacing-md);
+  --container-width: 1140px;
+  /* Default max width */
+  --container-width-narrow: 900px;
+  /* For components like testimonials */
+
+
+  /* Borders & Shadows */
+  --border-radius-sm: 0.25rem;
+  --border-radius: 0.5rem;
+  --border-radius-lg: 0.75rem;
+  --box-shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
+  --box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  --box-shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.1);
+
+  /* Transitions */
+  --transition-speed-fast: 0.15s;
+  --transition-speed: 0.3s;
+  --transition-speed-slow: 0.5s;
+  --transition-easing: ease-in-out;
+}
+
+/* Basic Reset & Global Settings */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-secondary);
+  /* Fallback font */
+  /* Default dark background for the site */
+  color: var(--color-white);
+  /* Default text color for dark background */
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+.container {
+  width: 90%;
+  max-width: var(--container-width);
+  /* 1200px from original, adjusted to variable */
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--container-padding);
+  /* 15px or 1rem */
+  padding-right: var(--container-padding);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* General CTA Button Style (can be overridden by specific section CTAs) */
+.cta-button {
+  display: inline-flex;
+  /* Changed from inline-block for better alignment with icons/text */
+  align-items: center;
+  justify-content: center;
+  padding: 10px 20px;
+  border: 1px solid var(--color-white);
+  border-radius: var(--border-radius-lg);
+  /* 8px / 0.75rem */
+  font-size: 0.9em;
+  font-weight: 600;
+  text-transform: uppercase;
+  /* Many buttons are uppercase */
+  transition: background-color var(--transition-speed) var(--transition-easing),
+    color var(--transition-speed) var(--transition-easing),
+    border-color var(--transition-speed) var(--transition-easing);
+  cursor: pointer;
+}
+
+.cta-button:hover {
+  background-color: var(--color-white);
+  color: #0D0D2B;
+  /* Dark background color */
+}
+
+.cta-button span,
+.cta-button svg {
+  margin-left: 8px;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.light-bg {
+  background-color: var(--color-white);
+  color: var(--color-dark);
+  /* Adjust text color for light backgrounds */
+}
+
+.custom-section-title {
+  display: flex;
+  /* Usa Flexbox para alinhar os itens na horizontal */
+  align-items: center;
+  /* Alinha os itens verticalmente ao centro */
+  width: 100%;
+  /* Ou a largura desejada para o título */
+  margin: 40px 0;
+  /* Espaçamento acima e abaixo do título */
+}
+
+.title-part {
+  display: flex;
+  /* Para alinhar o texto principal e o sobrescrito/preposição */
+  align-items: baseline;
+  /* Alinha pela linha de base do texto */
+}
+
+.main-text {
+  font-family: var(--font-primary);
+  /* Fonte condensada e forte, como na imagem */
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  /* Tamanho de fonte responsivo */
+  font-weight: normal;
+  /* Anton já é bastante "bold" por natureza */
+  text-transform: uppercase;
+  color: #000000;
+  /* Cor preta */
+  line-height: 1;
+  /* Ajuste para evitar altura excessiva */
+}
+
+.super-text {
+  font-family: var(--font-primary);
+  /* Mesma fonte ou uma complementar */
+  font-size: clamp(0.7rem, 2vw, 1rem);
+  /* Tamanho menor para o sobrescrito */
+  font-weight: normal;
+  color: #000000;
+  line-height: 0;
+  /* Ajuda a controlar a posição vertical do sobrescrito */
+  margin-left: 2px;
+  /* Pequeno espaço à esquerda */
+  /* vertical-align: super; é o padrão para <sup>, mas pode ser ajustado */
+}
+
+.separator-line {
+  flex-grow: 1;
+  /* Faz a linha ocupar o espaço disponível entre os textos */
+  height: 1px;
+  /* Espessura da linha */
+  background-color: #B0B0B0;
+  /* Cor cinza para a linha */
+  border: none;
+  /* Remove a borda padrão do <hr> */
+  margin: 0 20px;
+  /* Espaçamento nas laterais da linha */
+}
+
+.preposition-text {
+  font-family: 'Merriweather', serif;
+  /* Fonte serifada e itálica para "at" */
+  font-style: italic;
+  font-size: clamp(1rem, 2.5vw, 1.8rem);
+  /* Tamanho de fonte para "at" */
+  font-weight: 400;
+  text-transform: lowercase;
+  color: #000000;
+  margin-right: 8px;
+  /* Espaço entre "at" e "EVENT" */
+  align-self: center;
+  /* Alinha "at" verticalmente com "EVENT" se necessário */
+}
+
+/* Ajustes para o "at" ficar bem alinhado com o "EVENT" que é maior */
+.title-right .main-text {
+  /* O .main-text já tem estilos, aqui só ajustamos se necessário para o lado direito */
+}
+
+    /* Estilo base do botão */
+    .cta-button {
+        display: inline-block; /* Garante que o padding funcione corretamente */
+        padding: 12px 24px;
+        border: 2px dashed rgba(255, 255, 255, 0.7);
+        color: var(--color-white);
+        text-decoration: none;
+        font-weight: bold;
+        transition: background-color 0.3s ease, color 0.3s ease; /* Transição suave */
+    }
+
+    /* Efeito de hover no botão principal */
+    .cta-button:hover {
+        background-color: var(--color-orange);
+        color: var(--color-black);
+        border-color: var(--color-orange);
+    }
+
+    /* Estilo inicial da seta */
+    .cta-arrow {
+        color: var(--color-pink);
+        margin-left: 8px; /* Adiciona um espaço */
+        transition: color 0.3s ease; /* Transição suave para a cor da seta */
+    }
+
+    /* Quando o mouse passar sobre o .cta-button, mude a cor do .cta-arrow */
+    .cta-button:hover .cta-arrow {
+        color: var(--color-black);
+    }

@@ -1,0 +1,178 @@
+/* CTA Banner Section (#call-to-action-final) */
+.cta-banner-section {
+    background-color: var(--color-blue-dark);
+    /* #0A192F Dark blue */
+    color: var(--color-white);
+    padding: 80px 0;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+    border-radius: 20px;
+    margin: 40px 20px;
+    /* Add space around the banner, adjust as needed */
+}
+
+.cta-banner-section .container {
+    /* max-width: 1140px; /* Already set globally */
+    position: relative;
+    z-index: 2;
+    /* Content above decorative elements */
+}
+
+.cta-banner-section h2 {
+    font-family: var(--font-primary);
+    color: var(--color-white);
+    font-size: clamp(2.5rem, 6vw, 3.5rem);
+    font-weight: bold;
+    /* Anton is bold */
+    line-height: 1.2;
+    margin-bottom: 40px;
+    text-transform: uppercase;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.cta-banner-section p {
+    /* Optional paragraph if added */
+    color: var(--color-white);
+    /* Light gray/white text */
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 40px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.cta-banner-section .cta-button {
+    /* "GET IN TOUCH" button */
+    display: inline-block;
+    /* Garante que o padding funcione corretamente */
+    padding: 12px 24px;
+    border: 2px dashed rgba(255, 255, 255, 0.7);
+    color: var(--color-white);
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    /* Transição suave */
+}
+
+.cta-banner-section .cta-button svg {
+    color: var(--color-pink);
+    margin-left: 8px;
+    /* Adiciona um espaço */
+    transition: color 0.3s ease;
+    /* Transição suave para a cor da seta */
+}
+
+.cta-banner-section .cta-button:hover {
+    color: var(--color-black);
+}
+
+
+/* Decorative Background Elements */
+.cta-background-elements>div {
+    /* Common style for all direct children */
+    position: absolute;
+    z-index: 1;
+    /* Behind container content */
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.cta-background-elements .cta-swirl {
+    top: 40%;
+    /* Adjust */
+    left: 45%;
+    /* Adjust */
+    width: clamp(100px, 15vw, 150px);
+    height: clamp(100px, 15vw, 150px);
+    /* background-image: url('../assets/svg/placeholder-swirl.svg'); */
+    transform: translate(-120%, -80%) rotate(15deg);
+    opacity: 0.5;
+}
+
+.cta-background-elements .cta-star {
+    top: 60%;
+    /* Adjust */
+    left: 15%;
+    /* Adjust */
+    width: clamp(40px, 6vw, 60px);
+    height: clamp(40px, 6vw, 60px);
+    /* background-image: url('../assets/svg/placeholder-star.svg'); */
+    transform: rotate(-10deg);
+    opacity: 0.7;
+}
+
+.cta-background-elements .cta-tag-performance,
+.cta-background-elements .cta-tag-brand {
+    color: var(--color-dark);
+    /* Text color for tags */
+    padding: 8px 15px;
+    border-radius: var(--border-radius);
+    /* 8px */
+    font-size: clamp(0.8rem, 1.8vw, 0.9rem);
+    font-weight: bold;
+    box-shadow: var(--box-shadow-sm);
+}
+
+.cta-background-elements .cta-tag-performance {
+    top: 25%;
+    /* Adjust */
+    left: 35%;
+    /* Adjust */
+    background-color: #FFD700;
+    /* Yellowish */
+    transform: rotate(-8deg);
+}
+
+.cta-background-elements .cta-tag-brand {
+    bottom: 20%;
+    /* Adjust */
+    left: 10%;
+    /* Adjust */
+    background-color: #FF6B6B;
+    /* Reddish */
+    color: var(--color-white);
+    /* White text for this tag */
+    padding: 10px 20px;
+    transform: rotate(6deg);
+}
+
+.cta-background-elements .cta-circle-badge {
+    top: 50%;
+    /* Adjust */
+    right: 25%;
+    /* Adjust */
+    width: clamp(70px, 10vw, 100px);
+    height: clamp(70px, 10vw, 100px);
+    /* background-image: url('../assets/svg/placeholder-circle-badge.svg'); */
+    transform: translateY(-50%);
+    opacity: 0.6;
+}
+
+
+@media (max-width: 768px) {
+    .cta-banner-section {
+        padding: 60px 0;
+        margin: 20px 10px;
+    }
+
+    .cta-banner-section h2 {
+        font-size: clamp(1.8rem, 5vw, 2.5rem);
+    }
+
+    .cta-banner-section .cta-button {
+        padding: 12px 25px;
+        font-size: 0.9rem;
+    }
+
+    .cta-background-elements>div {
+        /* Hide or simplify decorative elements on small screens */
+        /* display: none; */
+        /* Option to hide */
+        opacity: 0.3;
+        /* Option to make them more subtle */
+    }
+}

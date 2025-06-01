@@ -1,0 +1,125 @@
+/* Testimonial Section (if it's a distinct section) */
+.testimonial-slider-section.light-bg {
+    background-color: var(--color-white);
+    padding: 80px 0;
+    color: var(--color-dark);
+}
+
+/* Individual Testimonial Styling */
+.testimonial.styled-testimonial {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    max-width: var(--container-width-narrow); /* 900px */
+    margin: 0 auto; /* Center the block */
+    position: relative;
+    background-color: var(--color-white); /* Card background if section is different */
+    padding: 30px; /* Padding around the testimonial card */
+    border-radius: var(--border-radius-lg); /* Rounded corners for the card */
+}
+
+.client-photo-bubble-wrapper {
+    flex-shrink: 0;
+    width: 420px; /* Reduced size */
+    height: 520px; /* Reduced size */
+    position: relative;
+    border-radius: 10px; /* Simpler rounded rectangle */
+    overflow: hidden; /* Essential for object-fit and border-radius */
+}
+
+/* Removed complex clip-path for broader compatibility, using border-radius on wrapper and image.
+   If speech bubble point is crucial, an SVG mask or more robust ::after element is needed. */
+
+.client-photo-bubble-wrapper .client-photo {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* border-radius: 20px; /* Image itself doesn't need radius if wrapper has overflow:hidden */
+}
+
+.testimonial-content {
+    flex-grow: 1;
+    text-align: left;
+}
+
+.testimonial-heading-area {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.testimonial-badge-icon {
+    display: inline-flex; /* For better alignment of SVG */
+    align-items: center;
+    justify-content: center;
+    margin-right: 10px; /* Spacing from text */
+}
+
+.testimonial-badge-icon  {
+    width: 32px;
+    height: 32px;
+    /* fill is set in SVG, or can be overridden: fill: var(--color-secondary); */
+}
+
+.testimonial-content blockquote {
+    margin: 0 0 20px 0;
+    padding: 0;
+    border: none;
+}
+
+.testimonial-content blockquote p {
+    font-family: var(--font-primary); /* Impactful font for quote */
+    font-size: clamp(1.8rem, 4vw, 2.2rem);
+    font-weight: normal; /* Anton is already bold */
+    line-height: 1.3;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+.testimonial-content blockquote .quote-dark {
+    color: #33334A; /* Dark grey/blueish */
+}
+
+.testimonial-content blockquote .quote-light {
+    color: #8D909A; /* Lighter grey */
+}
+
+.testimonial-content footer {
+    font-size: 1rem;
+    color: var(--color-black); /* #4A4A4A or similar */
+    line-height: 1.5;
+}
+
+.testimonial-content footer strong {
+    font-weight: bold;
+    color: var(--color-black); /* #333333 */
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .testimonial.styled-testimonial {
+        flex-direction: column;
+        text-align: center;
+        gap: 25px; /* Reduced gap */
+        padding: 20px;
+    }
+
+    .client-photo-bubble-wrapper {
+        width: 150px; /* Smaller image on mobile */
+        height: 150px;
+        margin-bottom: 0; /* Gap handles spacing */
+    }
+
+    .testimonial-content {
+        align-items: center; /* Ensure text content is centered */
+    }
+
+    .testimonial-heading-area {
+        justify-content: center; /* Center badge and label */
+    }
+
+    .testimonial-content blockquote p {
+        font-size: clamp(1.5rem, 5vw, 1.8rem);
+    }
+}

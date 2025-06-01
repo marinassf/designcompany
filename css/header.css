@@ -1,0 +1,155 @@
+/* Estilos existentes do Header (para contexto) */
+header {
+    padding: 25px 0;
+    background-color: var(--color-blue-dark);
+    position: relative;
+    z-index: 100;
+}
+
+.header-container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.8em;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: var(--color-white);
+    /* Supondo que você tenha :root { --color-white: #fff; } */
+}
+
+header nav ul {
+    display: flex;
+    gap: 30px;
+    list-style: none;
+    /* Remova marcadores de lista padrão */
+    padding-left: 40px;
+    /* Remova padding padrão da lista */
+    margin: 0;
+    /* Remova margem padrão da lista */
+}
+
+header nav ul li a {
+    font-size: 0.9em;
+    font-weight: 500;
+    color: var(--color-white);
+    transition: color var(--transition-speed-fast) var(--transition-easing);
+    /* Supondo vars definidas */
+    text-decoration: none;
+    /* É uma boa prática remover sublinhado de links de navegação */
+}
+
+header nav ul li a:hover {
+    color: var(--color-orange);
+}
+
+header nav ul li a span {
+    font-size: 0.7em;
+    margin-left: 5px;
+}
+
+.header-cta {
+    padding: 8px 18px;
+    margin-left: auto;
+    border-style: dashed;
+    /*outline: 2px solid rgba(255, 255, 255, 0.7);*/
+}
+
+.header-cta:hover {
+    background-color: var(--color-orange);
+    color: var(--color-black);
+}
+
+.cta-arrow {
+    color: var(--color-pink);
+}
+
+.cta-arrow:hover {
+    color: var(--color-black);
+}
+
+
+
+/* === CSS PARA O DROPDOWN MENU === */
+
+/* 1. Container do Dropdown (o <li> pai) */
+header nav ul li.dropdown {
+    position: relative;
+    /* Essencial para posicionar o dropdown-menu em relação a este item */
+}
+
+/* 2. O Menu Dropdown em si (a <ul> aninhada) */
+header nav ul li.dropdown .dropdown-menu {
+    display: none;
+    /* Escondido por padrão */
+    position: absolute;
+    /* Posicionamento absoluto em relação ao pai (.dropdown) */
+    top: 100%;
+    /* Começa logo abaixo do item pai */
+    left: 0;
+    /* Alinha à esquerda do item pai */
+    background-color: var(--color-blue-dark);
+    /* Mesma cor de fundo do header, ou outra de sua preferência */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    /* Borda similar à do header */
+    border-top: none;
+    /* Opcional: remove a borda de cima se parecer redundante */
+    padding: 10px 0;
+    /* Espaçamento interno vertical */
+    margin-top: 1px;
+    /* Pequeno ajuste para alinhar com a borda inferior do header, se necessário */
+    list-style: none;
+    /* Remove marcadores de lista */
+    min-width: 200px;
+    /* Largura mínima para o dropdown */
+    z-index: 110;
+    /* Garante que o dropdown fique acima de outros elementos */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    /* Sombra para dar profundidade */
+    border-radius: 0 0 4px 4px;
+    /* Cantos arredondados na parte inferior */
+}
+
+/* 3. Mostrar o dropdown-menu quando o mouse passar sobre o .dropdown (o <li> pai) */
+header nav ul li.dropdown:hover>.dropdown-menu {
+    display: block;
+    /* Ou 'flex' se precisar de display flex para os itens internos */
+}
+
+/* 4. Estilo dos links dentro do dropdown-menu */
+header nav ul li.dropdown .dropdown-menu li {
+    width: 100%;
+    /* Garante que cada item ocupe toda a largura */
+}
+
+header nav ul li.dropdown .dropdown-menu li a {
+    display: block;
+    /* Faz o link ocupar toda a área do <li> */
+    padding: 10px 20px;
+    /* Espaçamento interno dos links */
+    font-size: 0.85em;
+    /* Tamanho da fonte ligeiramente menor, opcional */
+    color: rgba(255, 255, 255, 0.8);
+    white-space: nowrap;
+    /* Impede que o texto do link quebre em várias linhas */
+    /* A transição já está no 'header nav ul li a', mas pode ser redefinida se necessário */
+}
+
+/* 5. Efeito hover para os links dentro do dropdown */
+header nav ul li.dropdown .dropdown-menu li a:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+    /* Leve destaque no hover */
+    color: var(--color-white);
+    /* Cor do texto no hover, igual aos links principais */
+}
+
+/* Supondo que suas variáveis CSS estejam definidas em :root ou similar */
+/* Exemplo:
+:root {
+    --color-white: #ffffff;
+    --transition-speed-fast: 0.2s;
+    --transition-easing: ease-in-out;
+}
+*/

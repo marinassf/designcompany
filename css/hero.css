@@ -1,0 +1,194 @@
+/* Hero Section */
+.hero {
+    padding: 80px 0;
+    text-align: center;
+    position: relative; /* For positioning graphic elements */
+    background-color: var(--color-blue-dark); /* Ensure hero background */
+    overflow: hidden; /* Contains decorative elements */
+}
+
+.hero-content-container {
+    position: relative;
+    z-index: 1; /* Content above some graphics */
+}
+
+.tagline {
+    font-family: var(--font-secondary);
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-white);
+    margin-bottom: 15px;
+}
+
+.tagline .heart {
+    color: #D92525; /* Heart color */
+    margin-right: 5px;
+}
+
+.hero-title {
+    font-family: var(--font-primary); /* Using banner font */
+    font-size: clamp(3rem, 10vw, 6.5rem);
+    font-weight: 900; /* Anton is typically bold by default */
+    line-height: 1.1;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+    position: relative;
+    color: var(--color-white); /* Default color for lines */
+}
+
+.hero-title .line {
+    display: block;
+    position: relative;
+}
+
+/* .line-transforming - uses default hero-title color */
+
+.line-vision {
+    color: var(--color-purple); /* Light purple for "VISION INTO" */
+}
+
+.hero-title .impact-word {
+    color: var(--color-orange); /* Orange for "IMPACT" */
+    position: relative;
+}
+
+/* .line-effectively - uses default hero-title color */
+
+.hero-subtitle {
+    font-size: 1.2rem;
+    font-family: var(--font-secondary);
+    color: var(--color-white);
+    max-width: 600px;
+    margin: 0 auto 40px auto;
+}
+
+/* Graphic Elements Placeholders */
+.graphic {
+    position: absolute;
+    /*background-color: rgba(255,0,0,0.1); /* For visualization during dev */
+    /* border: 1px dashed yellow; /* For visualization during dev */
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.graphic-spiral {
+    width: clamp(50px, 8vw, 80px);
+    height: clamp(50px, 8vw, 80px);
+    background-image: url('/assets/svg/pencil.png'); /* Placeholder path */
+    top: -20px;
+    left: 300px; /* Adjust based on actual graphic and desired position */
+    transform: rotate(-20deg);
+}
+
+.graphic-sticker {
+    width: clamp(70px, 10vw, 100px);
+    height: clamp(70px, 10vw, 100px);
+     background-image: url('/assets/svg/creativity.png'); 
+    top: -100px;
+    right: 200px; /* Adjust */
+    z-index: -0;
+}
+
+.graphic-plus {
+    font-size: clamp(1.5em, 3vw, 2em);
+    font-weight: bold;
+    color: var(--color-orange); /* Orange */
+}
+
+.graphic-plus-1 {
+    top: 10%;
+    left: 20%;
+}
+.graphic-plus-2 {
+    top: 60%;
+    right: 30%;
+}
+
+/* ============================================== */
+/* DEFINIÇÕES DAS ANIMAÇÕES             */
+/* ============================================== */
+
+/* Animação para a espiral (graphic-spiral) - Rotação sutil */
+@keyframes rodarEspiral {
+    0% {
+        transform: rotate(-15deg);
+    }
+    50% {
+        transform: rotate(-20deg);
+    }
+    100% {
+        transform: rotate(-15deg);
+    }
+}
+
+/* Animação para o sticker (graphic-sticker) - Balanço vertical sutil */
+@keyframes balancarSticker {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-6px); /* Aumentei um pouco para ser mais visível */
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+
+/* Animação para o star-burst (graphic-star-burst) - Pulsação */
+@keyframes pulsarStarburst {
+    0% {
+        opacity: 0.7;
+        transform: translateY(-50%) scale(1); /* Adicionada a transformação original */
+    }
+    50% {
+        opacity: 1;
+        transform: translateY(-50%) scale(1.05);
+    }
+    100% {
+        opacity: 0.7;
+        transform: translateY(-50%) scale(1);
+    }
+}
+
+/* Animação para os sinais de mais (graphic-plus) - Mudança sutil de cor/tamanho */
+@keyframes pulsarPlus {
+    0% {
+        color: var(--color-orange);
+        transform: scale(1);
+    }
+    50% {
+        color: var(--color-orange); /* Laranja um pouco mais claro */
+        transform: scale(1.1);
+    }
+    100% {
+        color: var(--color-orange);
+        transform: scale(1);
+    }
+}
+
+/* ============================================== */
+/* APLICAÇÃO DAS ANIMAÇÕES AOS ELEMENTOS   */
+/* ============================================== */
+
+.graphic-spiral {
+    /* Suas outras propriedades (width, height, background-image, top, left, transform) devem ser mantidas */
+    /* ... */
+    animation-name: rodarEspiral;
+    animation-duration: 5s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+.graphic-plus-1,
+.graphic-plus-2 {
+    /* Suas outras propriedades ... */
+    /* ... */
+    animation-name: pulsarPlus;
+    animation-duration: 3s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
